@@ -13,7 +13,7 @@ export default function Home() {
   if (!isSignedIn) {
     router.replace("/sign-in");
   } else {
-    router.push("/todo");
+    router.push("/");
   }
 
   const [todos, setTodos] = useState([]);
@@ -21,7 +21,6 @@ export default function Home() {
   const fetchTodos = async () => {
     const response = await axios.get("/api/todo");
     if (response) {
-      console.log(response.data.data);
       setTodos(response.data.data);
     }
   };
